@@ -6,102 +6,48 @@
         xmlns:local="clr-namespace:myCalculatorApp"
         mc:Ignorable="d"
         Title="Calculator" Height="650" Width="400"
-        Background="#1E1E1E"
+        Background="#F0F0F0"
         ResizeMode="NoResize">
 
-    <!-- Window Resources - Styles defined here -->
+    <!-- Window Resources - Simplified Styles -->
     <Window.Resources>
         <!-- Number Button Style -->
         <Style x:Key="NumberButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#2D2D30"/>
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Setter Property="FontSize" Value="28"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="#E0E0E0"/>
+            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                CornerRadius="8"
-                                BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                            VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#3E3E42"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#4A4A4F"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#999999"/>
+            <Setter Property="Margin" Value="3"/>
         </Style>
 
-        <!-- Operator Button Style (Orange accent) -->
+        <!-- Operator Button Style -->
         <Style x:Key="OperatorButtonStyle" TargetType="Button" BasedOn="{StaticResource NumberButtonStyle}">
-            <Setter Property="Background" Value="#FF9500"/>
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FFB84D"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#CC7700"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="Background" Value="#FFB84D"/>
+            <Setter Property="Foreground" Value="#000000"/>
         </Style>
 
-        <!-- Function Button Style (C, +/-, etc) -->
+        <!-- Function Button Style -->
         <Style x:Key="FunctionButtonStyle" TargetType="Button" BasedOn="{StaticResource NumberButtonStyle}">
-            <Setter Property="Background" Value="#505050"/>
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#606060"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#707070"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="Background" Value="#D0D0D0"/>
         </Style>
 
-        <!-- Memory Button Style (Blue accent) -->
+        <!-- Memory Button Style -->
         <Style x:Key="MemoryButtonStyle" TargetType="Button" BasedOn="{StaticResource NumberButtonStyle}">
-            <Setter Property="Background" Value="#0D47A1"/>
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#1565C0"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#0A3D8F"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="Background" Value="#ADD8E6"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
-        <!-- Equals Button Style (Green accent) -->
+        <!-- Equals Button Style -->
         <Style x:Key="EqualsButtonStyle" TargetType="Button" BasedOn="{StaticResource NumberButtonStyle}">
-            <Setter Property="Background" Value="#2E7D32"/>
-            <Setter Property="FontSize" Value="32"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#43A047"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#1B5E20"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="Background" Value="#90EE90"/>
+            <Setter Property="FontSize" Value="28"/>
         </Style>
     </Window.Resources>
 
-    <Grid Background="#1E1E1E">
+    <Grid Background="#F0F0F0">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
@@ -109,27 +55,25 @@
 
         <!-- Display -->
         <Border Grid.Row="0" 
-                Background="#252526" 
-                CornerRadius="12" 
-                Margin="15,15,15,10"
-                BorderThickness="1"
-                BorderBrush="#3E3E42">
+                Background="#FFFFFF" 
+                Margin="10"
+                BorderThickness="2"
+                BorderBrush="#999999">
             <TextBox x:Name="Display" 
                      FontSize="48"
-                     FontWeight="Light"
                      FontFamily="Segoe UI"
                      TextAlignment="Right" 
                      IsReadOnly="True" 
                      Background="Transparent"
-                     Foreground="#FFFFFF"
+                     Foreground="#000000"
                      BorderThickness="0"
-                     Padding="15"
+                     Padding="10"
                      VerticalContentAlignment="Center"
                      Text="0"/>
         </Border>
 
         <!-- Buttons Grid -->
-        <Grid Grid.Row="1" Margin="15,10,15,15">
+        <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition/>
